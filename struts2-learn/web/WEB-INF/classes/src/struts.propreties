@@ -1,0 +1,2 @@
+###设置默认编码集UTF-8
+struts.i18n.encoding=UTF8

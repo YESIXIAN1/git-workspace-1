@@ -19,5 +19,8 @@
   <h1>客户管理</h1>
   <a href="${pageContext.request.contextPath}/addCustomerAction.action">添加客户</a>
   <a href="${pageContext.request.contextPath}/updateCustomerAction.action">修改客户</a>
+
+  <h1>struts day1 案例代码实现</h1>
+  <a href="/struts_crm/customer_findAll.action">客户列表</a>
   </body>
 </html>
