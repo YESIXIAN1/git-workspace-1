@@ -1,5 +1,8 @@
 package cn.itcast.hibernate.day1.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Customer {
 	
 	/*
@@ -24,6 +27,22 @@ public class Customer {
 	private String cust_linkman;
 	private String cust_phone;
 	private String cust_mobile;
+
+	/**
+	 * 一个客户中含有多个联系人：联系人集合
+	 * Set 防重复
+	 * private Set<LinkMan> linkManset; 这样应该也可以
+	 */
+	private Set<LinkMan> linkManset = new HashSet<LinkMan>();
+
+	public Customer(Long cust_id, String cust_name) {
+		this.cust_id = cust_id;
+		this.cust_name = cust_name;
+	}
+
+	public Customer() {
+	}
+
 	public Long getCust_id() {
 		return cust_id;
 	}
@@ -72,12 +91,26 @@ public class Customer {
 	public void setCust_mobile(String cust_mobile) {
 		this.cust_mobile = cust_mobile;
 	}
+
+	public Set<LinkMan> getLinkManset() {
+		return linkManset;
+	}
+
+	public void setLinkManset(Set<LinkMan> linkManset) {
+		this.linkManset = linkManset;
+	}
+
 	@Override
 	public String toString() {
-		return "Customer [cust_id=" + cust_id + ", cust_name=" + cust_name + "]";
+		return "Customer{" +
+				"cust_id=" + cust_id +
+				", cust_name='" + cust_name + '\'' +
+				", cust_source='" + cust_source + '\'' +
+				", cust_industry='" + cust_industry + '\'' +
+				", cust_level='" + cust_level + '\'' +
+				", cust_linkman='" + cust_linkman + '\'' +
+				", cust_phone='" + cust_phone + '\'' +
+				", cust_mobile='" + cust_mobile + '\'' +
+				'}';
 	}
-	
-	
-	
-
 }

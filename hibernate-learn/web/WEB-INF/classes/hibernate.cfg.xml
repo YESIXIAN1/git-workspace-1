@@ -72,19 +72,5 @@
 		<mapping resource="cn/itcast/hibernate/day1/entity/LinkMan.hbm.xml" />
 		<mapping resource="cn/itcast/hibernate/day1/entity/User.hbm.xml" />
 		<mapping resource="cn/itcast/hibernate/day1/entity/Role.hbm.xml" />
-
-		<!--****************** 【二级缓存配置】****************** -->
-		 a.  开启二级缓存
-		<!--<property name="hibernate.cache.use_second_level_cache">true</property>
-		 b. 指定使用哪一个缓存框架(默认提供的)
-		<property name="hibernate.cache.provider_class">org.hibernate.cache.</property>
-		 开启查询缓存
-		<property name="hibernate.cache.use_query_cache">true</property>
-		 c. 指定哪一些类，需要加入二级缓存
-		<class-cache usage="read-write" class="cn.itcast.b_second_cache.Dept"/>
-		<class-cache usage="read-only" class="cn.itcast.b_second_cache.Employee"/>
-		 集合缓存[集合缓存的元素对象，也加加入二级缓存]
-		<collection-cache usage="read-write" collection="cn.itcast.b_second_cache.Dept.emps"/>-->
-
 	</session-factory>
 </hibernate-configuration>

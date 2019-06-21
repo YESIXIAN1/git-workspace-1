@@ -10,7 +10,7 @@
 			name: 完整类名
 			table:数据库表名
 	 -->
-	<class name="Customer" table="cst_customer" batch-size="12">
+	<class name="LinkMan" table="cst_linkman" >
 		<!-- id元素:配置主键映射的属性
 				name: 填写主键对应属性名
 				column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
@@ -19,7 +19,7 @@
 				not-null(可选):配置该属性(列)是否不能为空. 默认值:false
 				length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
 		 -->
-		<id name="cust_id"  >
+		<id name="lkm_id">
 			<!-- generator:主键生成策略(明天讲) -->
 			<generator class="native"></generator>
 		</id>
@@ -31,33 +31,17 @@
 				not-null(可选):配置该属性(列)是否不能为空. 默认值:false
 				length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
 		 -->
-		<property name="cust_name" column="cust_name" >
-			<!--  <column name="cust_name" sql-type="varchar" ></column> -->
-		</property>
-		<property name="cust_source" column="cust_source" ></property>
-		<property name="cust_industry" column="cust_industry" ></property>
-		<property name="cust_level" column="cust_level" ></property>
-		<property name="cust_linkman" column="cust_linkman" ></property>
-		<property name="cust_phone" column="cust_phone" ></property>
-		<property name="cust_mobile" column="cust_mobile" ></property>
+		<property name="lkm_gender"  ></property>
+		<property name="lkm_name"  ></property>
+		<property name="lkm_phone"  ></property>
+		<property name="lkm_email"  ></property>
+		<property name="lkm_qq"  ></property>
+		<property name="lkm_mobile"  ></property>
+		<property name="lkm_memo"  ></property>
+		<property name="lkm_position"  ></property>
 
-		<!--配置关联对象-->
-		<!--
-			set标签：
-				* name属性：集合的属性名称
-				* cascade属性：级联保存或更新
-		-->
-		<set name="linkManset" cascade="save-update" inverse="true">
-			<!--
-				key 标签：
-					* column 属性：多的一方外键名称
-			-->
-			<key column="lkm_cust_id"></key>
-			<!--
-				one-to-many标签：
-					* class 属性：多的一方全路径名
-			-->
-			<one-to-many class="cn.itcast.hibernate.day1.entity.LinkMan"/>
-		</set>
+		<!--配置关联关系-->
+		<many-to-one name="customer" column="lkm_cust_id" cascade = "save-update"
+					 class="cn.itcast.hibernate.day1.entity.Customer"/>
 	</class>
 </hibernate-mapping>
